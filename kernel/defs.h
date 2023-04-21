@@ -22,6 +22,9 @@ void            consoleinit(void);
 void            consoleintr(int);
 void            consputc(int);
 
+// null.c
+void            nullinit(void);
+
 // exec.c
 int             exec(char*, char**);
 
@@ -142,7 +145,7 @@ int             fetchstr(uint64, char*, int);
 int             fetchaddr(uint64, uint64*);
 void            syscall();
 
-// sem.c 
+// sem.c
 void seminit();
 int sem_open(int, unsigned int);
 int sem_post(int, unsigned int);

@@ -12,6 +12,7 @@ main()
 {
   if(cpuid() == 0){
     consoleinit();
+    nullinit();
     printfinit();
     printf("\n");
     printf("xv6 kernel is booting\n");
@@ -42,5 +43,5 @@ main()
     plicinithart();   // ask PLIC for device interrupts
   }
 
-  scheduler();        
+  scheduler();
 }

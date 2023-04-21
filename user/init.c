@@ -23,6 +23,12 @@ main(void)
   dup(0);  // stdout
   dup(0);  // stderr
 
+  // Setup Null Driver
+  if (open("null", O_RDWR) < 0){
+    mknod("null", NULL_DRIVER, 0);
+    open("null", O_RDWR);
+  }
+
   for(;;){
     printf("init: starting sh\n");
     pid = fork();
