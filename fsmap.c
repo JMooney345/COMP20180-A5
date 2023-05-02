@@ -50,17 +50,17 @@ main(int argc, char *argv[])
         fprintf(stderr, "Could not read in super block!");
     }
 
-    printf("%u\n", super.size);
-    printf("%u\n", super.nblocks);
-    printf("%u\n", super.ninodes);
-    printf("%u\n", super.nlog);
-    printf("%u\n", super.logstart);
-    printf("%u\n", super.inodestart);
-    printf("%u\n\n", super.bmapstart);
-
-    uint datastart = super.size - super.nblocks;
+    // printf("%u\n", super.size);
+    // printf("%u\n", super.nblocks);
+    // printf("%u\n", super.ninodes);
+    // printf("%u\n", super.nlog);
+    // printf("%u\n", super.logstart);
+    // printf("%u\n", super.inodestart);
+    // printf("%u\n\n", super.bmapstart);
 
     // Print summary
+
+    uint datastart = super.size - super.nblocks;
     printf("BS");
 
     for (i = 0; i < super.nlog; i++) putchar('L');
