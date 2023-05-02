@@ -141,7 +141,9 @@ UPROGS=\
 	$U/_zombie\
 	$U/_game\
 	$U/_dumppt\
-
+	$U/_interprocess\
+	$U/_gpu\
+	
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
 
