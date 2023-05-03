@@ -18,13 +18,13 @@ main(int argc, char *argv[])
 
   /* set console into non-blocking non-echoing mode */
   ioctl(0, _IO(CONSOLE_SETFL, CONSOLE_FL_NONBLOCK | CONSOLE_FL_NOECHO), 0);
-  
+
   ANSI_HIDE_CUR;
   ANSI_CLEAR;
 
   do {
-    /* !!!!!!! UNCOMMENT THE FOLLOWING LINE TO TEST YOUR ANSWER FOR Q3 !!!!!!!! */  
-    //res = read(0,&in,1);
+    /* !!!!!!! UNCOMMENT THE FOLLOWING LINE TO TEST YOUR ANSWER FOR Q3 !!!!!!!! */
+    res = read(0,&in,1);
     if (res > 0) {
       switch (in) {
          case 'w':
@@ -37,17 +37,17 @@ main(int argc, char *argv[])
                  break;
          case 's':
          case 'S':
-                 dy = 1; dx = 0; 
+                 dy = 1; dx = 0;
                  break;
          case 'd':
          case 'D':
                  dy = 0; dx = 1;
-                 break;		 
+                 break;
       }
     }
 
     sleep(1);
-    
+
     ANSI_GOTOXY(x,y);
     fprintf(1," ");
 
