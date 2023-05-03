@@ -207,6 +207,7 @@ consoleioctl(int user_dst, uint64 dst, int request)
 void
 consoleinit(void)
 {
+  cons.flags = 0;
   initlock(&cons.lock, "cons");
 
   uartinit();
@@ -216,7 +217,5 @@ consoleinit(void)
   devsw[CONSOLE].read = consoleread;
   devsw[CONSOLE].write = consolewrite;
   devsw[CONSOLE].ioctl = consoleioctl;
-
-  cons.flags = 0;
 
 }
