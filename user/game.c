@@ -24,7 +24,7 @@ main(int argc, char *argv[])
 
   do {
     /* !!!!!!! UNCOMMENT THE FOLLOWING LINE TO TEST YOUR ANSWER FOR Q3 !!!!!!!! */  
-    //res = read(0,&in,1);
+    res = read(0,&in,1);
     if (res > 0) {
       switch (in) {
          case 'w':
