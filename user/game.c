@@ -23,11 +23,6 @@ main(int argc, char *argv[])
   ANSI_CLEAR;
 
   do {
-<<<<<<< HEAD
-    /* !!!!!!! UNCOMMENT THE FOLLOWING LINE TO TEST YOUR ANSWER FOR Q3 !!!!!!!! */  
-=======
-    /* !!!!!!! UNCOMMENT THE FOLLOWING LINE TO TEST YOUR ANSWER FOR Q3 !!!!!!!! */
->>>>>>> 0768b344b42c306119e7a09a82cfb2541ffcd53c
     res = read(0,&in,1);
     if (res > 0) {
       switch (in) {

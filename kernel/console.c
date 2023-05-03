@@ -52,12 +52,7 @@ struct {
   uint r;  // Read index
   uint w;  // Write index
   uint e;  // Edit index
-<<<<<<< HEAD
-  uint blockFlag;
-  uint echoFlag;
-=======
   uint flags;
->>>>>>> 0768b344b42c306119e7a09a82cfb2541ffcd53c
 } cons;
 
 //
@@ -104,10 +99,6 @@ consoleread(int user_dst, uint64 dst, int n)
 
     // wait until interrupt handler has put some
     // input into cons.buffer.
-if(cons.blockFlag == CONSOLE_FL_NONBLOCK){
-        release(&cons.lock);
-        return 0;
-    }
     while(cons.r == cons.w){
       if(killed(myproc())){
         release(&cons.lock);
@@ -180,22 +171,12 @@ consoleintr(int c)
       c = (c == '\r') ? '\n' : c;
 
       // echo back to the user.
-<<<<<<< HEAD
-      if(cons.echoFlag != CONSOLE_FL_NOECHO){
-      consputc(c);
-      }
-=======
       if ((cons.flags & CONSOLE_FL_NOECHO) != CONSOLE_FL_NOECHO) consputc(c);
->>>>>>> 0768b344b42c306119e7a09a82cfb2541ffcd53c
 
       // store for consumption by consoleread().
       cons.buf[cons.e++ % INPUT_BUF_SIZE] = c;
 
-<<<<<<< HEAD
-      if(cons.blockFlag == CONSOLE_FL_NONBLOCK || c == '\n' || c == C('D') || cons.e-cons.r == INPUT_BUF_SIZE){
-=======
       if ((cons.flags & CONSOLE_FL_NONBLOCK) == CONSOLE_FL_NONBLOCK || c == '\n' || c == C('D') || cons.e-cons.r == INPUT_BUF_SIZE){
->>>>>>> 0768b344b42c306119e7a09a82cfb2541ffcd53c
         // wake up consoleread() if a whole line (or end-of-file)
         // has arrived.
         cons.w = cons.e;
@@ -213,19 +194,11 @@ int
 consoleioctl(int user_dst, uint64 dst, int request)
 {
   int res = -1;
-<<<<<<< HEAD
-  if (_IOC_TYPE(request) == CONSOLE_SETFL) {
-    acquire(&cons.lock);
-    cons.blockFlag = _IOC_NR(request); // get flag values
-    cons.echoFlag = _IOC_NR(request); // get flag values
-    release(&cons.lock);
-=======
 
   if (_IOC_TYPE(request) == CONSOLE_SETFL) {
       acquire(&cons.lock);
       cons.flags = _IOC_NR(request);
       release(&cons.lock);
->>>>>>> 0768b344b42c306119e7a09a82cfb2541ffcd53c
   }
 
   return res;
