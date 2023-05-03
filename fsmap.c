@@ -1,3 +1,6 @@
+// James Mooney (21318933)
+// Tal Adler (21723129)
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>

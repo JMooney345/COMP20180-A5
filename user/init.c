@@ -1,5 +1,6 @@
 // init: The initial user-level program
-
+// James Mooney (21318933)
+// Tal Adler (21723129)
 #include "kernel/types.h"
 #include "kernel/stat.h"
 #include "kernel/spinlock.h"

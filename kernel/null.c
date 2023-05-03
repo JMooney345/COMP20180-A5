@@ -2,7 +2,8 @@
 // Assignment 5 Task 1
 // Anything inputted into this device driver is deleted
 // Cannot read from this, returns -1
-
+// James Mooney (21318933)
+// Tal Adler (21723129)
 #include <stdarg.h>
 
 #include "types.h"

@@ -1,4 +1,8 @@
-struct file {
+// James Mooney (21318933)
+// Tal Adler (21723129)
+
+struct file 
+{
   enum { FD_NONE, FD_PIPE, FD_INODE, FD_DEVICE } type;
   int ref; // reference count
   char readable;
